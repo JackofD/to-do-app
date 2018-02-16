@@ -1,14 +1,14 @@
 import React from 'react';
 //import ReactDOM from 'react-dom';
 
-class App extends React.Component {
+class Todo extends React.Component {
 	render() {
 		return(
-			<div>
-				App page
-			</div>
+      <div>
+        Todo
+      </div>
 		)	
 	}
 }
 
-export default App;
+export default Todo;
