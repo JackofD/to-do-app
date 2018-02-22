@@ -6,14 +6,14 @@ import App from './components/App';
 import Wrong from './components/Wrong';
 
 const Root = () => {
-		return(
-			<BrowserRouter>
-				<div>
-				  <Match exactly pattern="/" component={App} />
-				  <Miss component={Wrong}/>
-				</div>
-			</BrowserRouter>
-		)	
+  return(
+    <BrowserRouter>
+      <div>
+        <Match exactly pattern="/" component={App} />
+        <Miss component={Wrong}/>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 render(<Root />, document.querySelector("#main"));

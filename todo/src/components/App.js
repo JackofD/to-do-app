@@ -2,13 +2,13 @@ import React from 'react';
 //import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-	render() {
-		return(
-			<div>
-				App page
-			</div>
-		)	
-	}
+  render() {
+    return(
+      <div>
+        App page
+      </div>
+    )	
+  }
 }
 
 export default App;
