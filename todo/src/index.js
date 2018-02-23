@@ -9,8 +9,11 @@ const Root = () => {
   return(
     <BrowserRouter>
       <div>
-        <Route exact path="/" component={App} />
-        <Route component={Wrong}/>
+        <Switch>
+          {/* The switch only renders the first matching path - so be careful about the order */}
+          <Route exact path="/" component={App} />
+          <Route component={Wrong}/>
+        </Switch>
       </div>
     </BrowserRouter>
   )
