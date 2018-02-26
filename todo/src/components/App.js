@@ -1,11 +1,15 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
+import Header from './Header';
+//import Sample from '../sample';
+import Todo from './Todo';
 
 class App extends React.Component {
   render() {
     return(
       <div>
+        <Header />
         App page
+        <Todo />
       </div>
     )	
   }
