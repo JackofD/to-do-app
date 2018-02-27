@@ -2,6 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import './css/main.css';
+
 import App from './components/App';
 import Wrong from './components/Wrong';
 
