@@ -8,9 +8,9 @@ class Task extends React.Component {
 
     return(
       <li className="task-card">
-        <h2>{details.heading}</h2>
-        <section>{details.text}</section>
-        <div>completed: {details.complete ? "true" : "false"}</div>
+        <h2 className="task-card__heading">{details.heading}</h2>
+        <section className="task-card__text">{details.text}</section>
+        <div className="task-card__status">completed: {details.complete ? "true" : "false"}</div>
       </li>
     )	
   }

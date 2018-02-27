@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Sample from '../sample';
+import Sidebar from './SideBar';
 import Task from './Task';
 
 class App extends React.Component {
@@ -23,18 +24,25 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="site-wrapper">
         <Header />
+
         <button onClick={this.loadSamples}>Sample</button>
-        <ul className="task-list">
-          {
-            Object
-              .keys(this.state.tasks)
-              .map(key => <Task key={key} details={this.state.tasks[key]}/>)
-          }
-        </ul>
+        <section className="main-content">
+          <Sidebar />
+          <main className="todo-content">
+            <ul className="task-list">
+              {
+                Object
+                  .keys(this.state.tasks)
+                  .map(key => <Task key={key} details={this.state.tasks[key]}/>)
+              }
+            </ul>
+          </main>
+        </section>
+
       </div>
-    )	
+    )
   }
 }
 
