@@ -23,16 +23,21 @@ class App extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="site-wrapper">
         <Header />
+
         <button onClick={this.loadSamples}>Sample</button>
-        <ul className="task-list">
-          {
-            Object
-              .keys(this.state.tasks)
-              .map(key => <Task key={key} details={this.state.tasks[key]}/>)
-          }
-        </ul>
+
+        <main className="main-content">
+          <ul className="task-list">
+            {
+              Object
+                .keys(this.state.tasks)
+                .map(key => <Task key={key} details={this.state.tasks[key]}/>)
+            }
+          </ul>
+        </main>
+
       </div>
     )
   }
