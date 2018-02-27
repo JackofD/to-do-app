@@ -51,15 +51,26 @@ table {
 html {
   font-family: "Arial", sans-serif; }
 
-.main-header {
-  background-color: #666;
-  padding: 20px;
+.theme-grey {
   color: #fff;
+  background-color: #666; }
+
+.main-header {
+  padding: 20px;
   font-size: 1em; }
 
 .main-content {
+  display: flex;
+  flex-direction: row; }
+
+.sidebar {
   padding: 20px;
-  margin: 1em 0; }
+  min-width: 200px; }
+
+.todo-content {
+  padding: 20px;
+  margin: 1em 0;
+  flex-grow: 1; }
 
 .task-list {
   display: flex;

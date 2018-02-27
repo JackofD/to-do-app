@@ -1,13 +1,21 @@
 .main-header{
-  background-color: #666;
   padding: 20px;
-  color: #fff;
   font-size: 1em;
 }
 
+//look into using css grid for this
 .main-content {
+  display: flex;
+  flex-direction: row;
+}
+.sidebar {
+  padding: 20px;
+  min-width: 200px;
+}
+.todo-content {
   padding: 20px;
   margin: 1em 0;
+  flex-grow: 1;
 }
 
 .task-list {
