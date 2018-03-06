@@ -3,6 +3,7 @@ import Header from './Header';
 import Sample from '../sample';
 import Sidebar from './SideBar';
 import Task from './Task';
+import base from '../base';
 
 class App extends React.Component {
   //this constructor is used to initialise the state
@@ -14,6 +15,17 @@ class App extends React.Component {
     this.state = {
       tasks: {}
     }
+  }
+
+  componentWillMount(){
+    this.ref = base.syncState(`/`, {
+      context: this,
+      state: 'tasks'
+    });
+  }
+
+  componentWillUnmount(){
+    base.removeBinding(this.ref);
   }
 
   loadSamples(){
