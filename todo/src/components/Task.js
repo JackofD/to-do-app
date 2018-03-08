@@ -11,6 +11,7 @@ class Task extends React.Component {
         <h2 className="task-card__heading">{details.heading}</h2>
         <section className="task-card__text">{details.text}</section>
         <div className="task-card__status">completed: {details.complete ? "true" : "false"}</div>
+        <span onClick={() => this.props.deleteTask(this.props.index)}>&times;</span>
       </li>
     )	
   }
