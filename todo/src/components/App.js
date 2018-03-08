@@ -3,6 +3,7 @@ import Header from './Header';
 import Sample from '../sample';
 import Sidebar from './SideBar';
 import Task from './Task';
+import AddTaskForm from './AddTaskForm';
 import base from '../base';
 
 class App extends React.Component {
@@ -15,6 +16,13 @@ class App extends React.Component {
     this.state = {
       tasks: {}
     }
+  }
+
+  addTask = task => {
+    const tasks = { ...this.state.tasks };
+    tasks[`task${Date.now()}`] = task;
+    this.setState({ tasks: tasks }); // can also be this.setState({ tasks });
+    console.log("adding a task that was created");
   }
 
   componentWillMount(){
@@ -43,6 +51,7 @@ class App extends React.Component {
         <section className="main-content">
           <Sidebar />
           <main className="todo-content">
+            <AddTaskForm addTask={this.addTask} />
             <ul className="task-list">
               {
                 Object
