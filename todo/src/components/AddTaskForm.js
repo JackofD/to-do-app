@@ -15,12 +15,13 @@ class AddTaskForm extends React.Component {
     };
 
     this.props.addTask(task);
+    this.taskForm.reset();
   }
 
   render() {
 
     return(
-      <form action="" className="task-card" onSubmit={this.createTask}>
+      <form ref={(input) => (this.taskForm = input)} action="" className="task-card" onSubmit={this.createTask}>
         <h3 className="task-card__heading">Add new</h3>
         <input name="task-heading" ref={(input) => (this.heading = input)} placeholder="Task heading" id="task-heading" />
         <textarea name="task-detail" ref={(input) => (this.detail = input)} placeholder="Task details" id="task-detail"></textarea>
