@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Task extends React.Component {
 
@@ -10,6 +11,12 @@ class Task extends React.Component {
 
     this.props.updateStatus(this.props.index, updatedTask);
     console.log(updatedTask);
+  }
+
+  setCurrent = (event) => {
+    const activeTask = {...this.props.details};
+    this.props.setCurrentTask(this.props.index, activeTask);
+    console.log(activeTask);
   }
 
   render() {
@@ -26,6 +33,7 @@ class Task extends React.Component {
           <label className="input-check__label" htmlFor={`status${this.props.index}`}></label>
           </div>
         <span className="x-btn" onClick={() => this.props.deleteTask(this.props.index)}>&times;</span>
+        <Link to="/edit" className="edit-btn" onClick={this.setCurrent}>Edit</Link>
       </li>
     )	
   }

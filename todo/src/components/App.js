@@ -5,6 +5,8 @@ import Sidebar from './SideBar';
 import Task from './Task';
 import AddTaskForm from './AddTaskForm';
 import base from '../base';
+import EditTaskForm from './EditTaskForm';
+import { Route, Switch } from 'react-router-dom';
 
 class App extends React.Component {
   //this constructor is used to initialise the state
@@ -14,7 +16,8 @@ class App extends React.Component {
     this.loadSamples = this.loadSamples.bind(this);
 
     this.state = {
-      tasks: {}
+      tasks: {},
+      currentTask: {}
     }
   }
 
@@ -35,6 +38,17 @@ class App extends React.Component {
     const tasks = { ...this.state.tasks };
     tasks[key] = updatedTask;
     this.setState({ tasks });
+  }
+
+  editTask = (task) => {
+    const tasks = { ...this.state.tasks};
+    this.setState({tasks});
+  }
+
+  setCurrentTask = (key, task) => {
+    const tasks = { ...this.state.tasks};
+    tasks[key] = task;
+    this.setState({currentTask: task});
   }
 
   componentWillMount(){
@@ -59,18 +73,36 @@ class App extends React.Component {
       <div className="site-wrapper">
         <Header />
 
-        <button onClick={this.loadSamples}>Sample</button>
+        {/* <button onClick={this.loadSamples}>Sample</button> */}
         <section className="main-content">
           <Sidebar />
           <main className="todo-content">
-            <AddTaskForm addTask={this.addTask} />
-            <ul className="task-list">
-              {
-                Object
-                  .keys(this.state.tasks)
-                  .map(key => <Task key={key} index={key} details={this.state.tasks[key]} updateStatus={this.updateStatus} deleteTask={this.deleteTask} />)
+            <Switch>
+              {/* this renders the new task form and the current tasks */}
+              <Route exact path="/" render={ () =>
+                (
+                  <div>
+                    <AddTaskForm addTask={this.addTask} />
+                    <ul className="task-list">
+                      {
+                        Object
+                          .keys(this.state.tasks)
+                          .map(key => <Task key={key} index={key} details={this.state.tasks[key]} updateStatus={this.updateStatus} setCurrentTask={this.setCurrentTask} deleteTask={this.deleteTask} />)
+                      }
+                    </ul>
+                  </div>
+                )
               }
-            </ul>
+              />
+
+              {/* this renders the edit task form */}
+              <Route
+                path="/edit"
+                render={(routeProps) => (
+                  <EditTaskForm  {...routeProps} currentDetails={this.state.currentTask} editTask={this.editTask}/>
+                )}
+              />
+            </Switch>
           </main>
         </section>
 

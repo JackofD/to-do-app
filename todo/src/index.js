@@ -12,7 +12,7 @@ const Root = () => {
     <BrowserRouter>
         <Switch>
           {/* The switch only renders the first matching path - so be careful about the order */}
-          <Route exact path="/" component={App} />
+          <Route path="/" component={App} />
           <Route component={Wrong}/>
         </Switch>
     </BrowserRouter>
