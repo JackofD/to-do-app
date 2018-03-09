@@ -31,6 +31,12 @@ class App extends React.Component {
     this.setState({ tasks });
   }
 
+  updateStatus = (key, updatedTask) => {
+    const tasks = { ...this.state.tasks };
+    tasks[key] = updatedTask;
+    this.setState({ tasks });
+  }
+
   componentWillMount(){
     this.ref = base.syncState(`/`, {
       context: this,
@@ -62,7 +68,7 @@ class App extends React.Component {
               {
                 Object
                   .keys(this.state.tasks)
-                  .map(key => <Task key={key} index={key} details={this.state.tasks[key]} deleteTask={this.deleteTask} />)
+                  .map(key => <Task key={key} index={key} details={this.state.tasks[key]} updateStatus={this.updateStatus} deleteTask={this.deleteTask} />)
               }
             </ul>
           </main>
