@@ -11,7 +11,8 @@ class AddTaskForm extends React.Component {
 
     const task = {
       heading: this.heading.value,
-      text: this.detail.value
+      text: this.detail.value,
+      complete: false
     };
 
     this.props.addTask(task);
