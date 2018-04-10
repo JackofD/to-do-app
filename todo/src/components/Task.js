@@ -14,7 +14,7 @@ class Task extends React.Component {
   }
 
   setCurrent = (event) => {
-    const activeTask = {...this.props.details};
+    const activeTask = {...this.props.details, index: this.props.index};
     this.props.setCurrentTask(this.props.index, activeTask);
     console.log(activeTask);
   }

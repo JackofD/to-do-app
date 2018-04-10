@@ -51,6 +51,8 @@ class App extends React.Component {
     this.setState({currentTask: task});
   }
 
+  //we need an editCurrentTask function/method here to update the currentTask state which can then be propagated to the main state
+
   componentWillMount(){
     this.ref = base.syncState(`/`, {
       context: this,
